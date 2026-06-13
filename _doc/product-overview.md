@@ -4,7 +4,7 @@
 KYYXBOT
 
 ## Status
-MVP scoped — ready to build.
+MVP built — live.
 
 ## What It Is
 A private AI chatbot application for a small, closed circle of friends. KYYXBOT gives the owner and their invited friends access to a capable AI assistant — instant answers on any topic and real hands-on coding help — in a clean conversational interface. It is never public-facing; access is invite-only.
