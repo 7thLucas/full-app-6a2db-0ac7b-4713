@@ -31,4 +31,4 @@ Access is by invitation only. No public registration, no open access.
 4. **Expandable** — MVP ships the core Q&A + coding features; capabilities like image generation, file uploads, and integrations can be added as the circle's needs grow.
 
 ---
-_Last updated: scoping complete — all MVP facts confirmed._
+_Last updated: MVP built and live — initial generation complete._
