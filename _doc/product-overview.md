@@ -22,7 +22,7 @@ Access is by invitation only. No public registration, no open access.
 ## Brand & Tone
 - **Visual**: Dark/tech aesthetic — modern, sleek, bot-themed. Clean geometric icon, futuristic and exclusive feel.
 - **Tone**: Casual and direct. No corporate language; the circle communicates informally.
-- **Color palette**: Indigo/purple primary (established by Designer; logo live at platform).
+- **Color palette**: Logo uses indigo/purple (established by Designer; live at platform). App UI uses electric cyan (#00c8ff) on near-black (#0d0d0d) — set by Engineer at build time.
 
 ## Strategic Principles
 1. **Private by design** — no public registration, no open access. The circle stays closed.
