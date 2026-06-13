@@ -1,8 +1,4 @@
-import { Form, Link, useActionData, useNavigation } from "@remix-run/react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "~/components/ui/card";
-import { Input } from "~/components/ui/input";
-import { Button } from "~/components/ui/button";
-import { Label } from "~/components/ui/label";
+import { Form, Link, useActionData, useNavigation } from "react-router";
 
 interface ActionData {
   error?: string;
@@ -14,66 +10,84 @@ export function LoginCard() {
   const isSubmitting = navigation.state === "submitting";
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold">Sign in</CardTitle>
-          <CardDescription>Enter your email and password to access your account</CardDescription>
-        </CardHeader>
+    <div className="flex min-h-screen items-center justify-center bg-[#0d0d0d] px-4">
+      {/* Background glow */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#00c8ff]/5 rounded-full blur-3xl" />
+      </div>
 
-        <Form method="post">
-          <CardContent className="space-y-4">
+      <div className="relative w-full max-w-sm">
+        {/* Logo */}
+        <div className="flex flex-col items-center mb-8">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00c8ff] to-[#3b82f6] flex items-center justify-center mb-4 shadow-lg shadow-[#00c8ff]/20">
+            <span className="text-lg font-black text-[#0d0d0d]">K</span>
+          </div>
+          <h1 className="text-xl font-bold text-white tracking-tight">KYYXBOT</h1>
+          <p className="text-sm text-[#555] mt-1">Private AI assistant</p>
+        </div>
+
+        {/* Card */}
+        <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl p-6">
+          <h2 className="text-base font-semibold text-white mb-1">Sign in</h2>
+          <p className="text-xs text-[#555] mb-5">Enter your credentials to continue</p>
+
+          <Form method="post" className="space-y-4">
             {actionData?.error && (
-              <div className="rounded-md bg-destructive/10 px-4 py-3 text-sm text-destructive">
+              <div className="rounded-xl bg-[#ef4444]/10 border border-[#ef4444]/20 px-4 py-3 text-xs text-[#ef4444]">
                 {actionData.error}
               </div>
             )}
 
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
+            <div className="space-y-1.5">
+              <label htmlFor="email" className="text-xs font-medium text-[#888]">Email</label>
+              <input
                 id="email"
                 name="email"
                 type="email"
                 placeholder="you@example.com"
                 required
                 autoComplete="email"
+                className="w-full bg-[#111] border border-[#333] rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#444] outline-none focus:border-[#00c8ff]/50 focus:ring-1 focus:ring-[#00c8ff]/30 transition-colors"
               />
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <Label htmlFor="password">Password</Label>
+                <label htmlFor="password" className="text-xs font-medium text-[#888]">Password</label>
                 <Link
                   to="/auth/forgot-password"
-                  className="text-xs text-muted-foreground underline-offset-4 hover:underline"
+                  className="text-xs text-[#555] hover:text-[#00c8ff] transition-colors"
                 >
                   Forgot password?
                 </Link>
               </div>
-              <Input
+              <input
                 id="password"
                 name="password"
                 type="password"
                 required
                 autoComplete="current-password"
+                className="w-full bg-[#111] border border-[#333] rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#444] outline-none focus:border-[#00c8ff]/50 focus:ring-1 focus:ring-[#00c8ff]/30 transition-colors"
               />
             </div>
-          </CardContent>
 
-          <CardFooter className="flex flex-col gap-4">
-            <Button type="submit" className="w-full" disabled={isSubmitting}>
-              {isSubmitting ? "Signing in…" : "Sign in"}
-            </Button>
-            <p className="text-center text-sm text-muted-foreground">
-              Don&apos;t have an account?{" "}
-              <Link to="/auth/register" className="font-medium underline underline-offset-4">
-                Create one
-              </Link>
-            </p>
-          </CardFooter>
-        </Form>
-      </Card>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-[#00c8ff] hover:bg-[#00b4e8] text-[#0d0d0d] font-semibold text-sm rounded-xl py-2.5 transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed mt-2 shadow-sm shadow-[#00c8ff]/20"
+            >
+              {isSubmitting ? "Signing in..." : "Sign in"}
+            </button>
+          </Form>
+        </div>
+
+        <p className="text-center text-xs text-[#444] mt-4">
+          Need access?{" "}
+          <Link to="/auth/register" className="text-[#00c8ff] hover:underline">
+            Create account
+          </Link>
+        </p>
+      </div>
     </div>
   );
 }
